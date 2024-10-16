@@ -1,10 +1,10 @@
-package com.example.kotlin_blocking_vs_reactive
+package com.example.kotlinspringweb
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class KotlinSpringWebfluxApplication {
+class KotlinSpringWebApplication {
 
 	@Test
 	fun contextLoads() {

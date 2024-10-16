@@ -1,0 +1,6 @@
+spring:
+  application.name: kotlin-spring-web
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres_db
+    username: root
+    password: password

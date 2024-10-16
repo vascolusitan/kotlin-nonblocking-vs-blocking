@@ -12,26 +12,18 @@
 	<description>Spring WebFlux Module</description>
 
 	<properties>
-		<spring-boot-starter-data-r2dbc.version>3.3.4</spring-boot-starter-data-r2dbc.version>
 		<r2dbc-postgresql.version>1.0.6.RELEASE</r2dbc-postgresql.version>
-		<spring-boot-starter-webflux.version>3.3.4</spring-boot-starter-webflux.version>
 		<jackson-module-kotlin.version>2.18.0</jackson-module-kotlin.version>
 		<reactor-kotlin-extensions.version>1.2.3</reactor-kotlin-extensions.version>
-		<kotlin-reflect.version>2.0.21</kotlin-reflect.version>
-		<kotlin-stdlib.version>2.0.21</kotlin-stdlib.version>
 		<kotlinx-coroutines-reactor.version>1.9.0</kotlinx-coroutines-reactor.version>
-		<flyway.version>10.19.0</flyway.version>
-		<postgresql.version>42.7.4</postgresql.version>
-		<spring-boot-starter-test.version>3.3.4</spring-boot-starter-test.version>
 		<reactor-test.version>3.6.10</reactor-test.version>
-		<kotlin-test-junit5.version>2.0.21</kotlin-test-junit5.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
-			<version>${spring-boot-starter-data-r2dbc.version}</version>
+			<version>${spring-boot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -41,7 +33,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
-			<version>${spring-boot-starter-webflux.version}</version>
+			<version>${spring-boot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.module</groupId>
@@ -56,12 +48,12 @@
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
 			<artifactId>kotlin-reflect</artifactId>
-			<version>${kotlin-reflect.version}</version>
+			<version>${kotlin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
 			<artifactId>kotlin-stdlib</artifactId>
-			<version>${kotlin-stdlib.version}</version>
+			<version>${kotlin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains.kotlinx</groupId>
@@ -71,7 +63,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>${spring-boot-starter-test.version}</version>
+			<version>${spring-boot.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -83,7 +75,7 @@
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
 			<artifactId>kotlin-test-junit5</artifactId>
-			<version>${kotlin-test-junit5.version}</version>
+			<version>${kotlin.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -126,28 +118,6 @@
 						<groupId>org.jetbrains.kotlin</groupId>
 						<artifactId>kotlin-maven-noarg</artifactId>
 						<version>${kotlin.version}</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-maven-plugin</artifactId>
-				<version>${flyway.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.flywaydb</groupId>
-						<artifactId>flyway-core</artifactId>
-						<version>${flyway.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.flywaydb</groupId>
-						<artifactId>flyway-database-postgresql</artifactId>
-						<version>${flyway.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.postgresql</groupId>
-						<artifactId>postgresql</artifactId>
-						<version>${postgresql.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
