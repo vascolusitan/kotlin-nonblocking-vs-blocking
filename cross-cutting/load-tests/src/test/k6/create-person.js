@@ -1,6 +1,6 @@
 import http from 'k6/http'
 import { check } from 'k6'
-import { options } from './config.js'
+import { options } from './config/config.js'
 
 export { options }
 
