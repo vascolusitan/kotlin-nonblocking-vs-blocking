@@ -8,8 +8,10 @@ import jakarta.persistence.Id
 @Entity
 data class Person(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Long = 0L,
-    val name: String = "",
-    val age: Int = 0
-)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
+    val name: String,
+    val age: Int
+) {
+    constructor() : this(null, "", 0)
+}

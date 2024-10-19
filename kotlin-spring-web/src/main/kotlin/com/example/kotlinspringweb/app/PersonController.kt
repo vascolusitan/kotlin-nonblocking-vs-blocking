@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
@@ -27,10 +28,10 @@ class PersonController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createPerson(person: Person): Person = personService.createPerson(person)
+    fun createPerson(@RequestBody person: Person): Person = personService.createPerson(person)
 
     @PutMapping("/{id}")
-    fun editPerson(@PathVariable id: Long, person: Person): Person {
+    fun editPerson(@PathVariable id: Long, @RequestBody person: Person): Person {
         return personService.editPerson(id, person)
     }
 
