@@ -4,3 +4,10 @@ spring:
     url: r2dbc:postgresql://localhost:5432/postgres_db
     username: root
     password: password
+    pool:
+      enabled: true
+      max-size: 150                   # Maximum connections in the pool
+      initial-size: 20                # Initial number of connections when the pool is created
+      max-idle-time: 30s              # Idle connections will be closed after 30 seconds of inactivity
+      max-create-connection-time: 5s  # Maximum time to wait before creating a new connection
+      validation-query: SELECT 1      # A lightweight query to check the connection health

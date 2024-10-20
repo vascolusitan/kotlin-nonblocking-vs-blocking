@@ -31,6 +31,11 @@
 			<version>${r2dbc-postgresql.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>io.r2dbc</groupId>
+			<artifactId>r2dbc-pool</artifactId>
+			<version>1.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 			<version>${spring-boot.version}</version>
