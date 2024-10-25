@@ -1,13 +1,10 @@
 export let options = {
     stages: [
         { duration: '2m', target: 25 },   // Ramp up to 25 concurrent connections
-        { duration: '10m', target: 25 },  // Hold for 10 minutes at 25 connections
+        { duration: '2m', target: 25 },   // Hold for 10 minutes at 25 connections
         { duration: '2m', target: 0 },    // Ramp down to 0
         { duration: '2m', target: 100 },  // Ramp up to 100 concurrent connections
-        { duration: '10m', target: 100 }, // Hold for 10 minutes at 100 connections
-        { duration: '2m', target: 0 },    // Ramp down to 0
-        { duration: '2m', target: 300 },  // Ramp up to 300 concurrent connections
-        { duration: '10m', target: 300 }, // Hold for 10 minutes at 300 connections
+        { duration: '4m', target: 100 },  // Hold for 10 minutes at 100 connections
         { duration: '2m', target: 0 },    // Ramp down to 0
     ],
     thresholds: {

@@ -20,6 +20,7 @@
         <module>kotlin-spring-webflux</module>
         <module>kotlin-spring-web</module>
         <module>cross-cutting</module>
+        <module>kotlin-quarkus</module>
     </modules>
 
 </project>
