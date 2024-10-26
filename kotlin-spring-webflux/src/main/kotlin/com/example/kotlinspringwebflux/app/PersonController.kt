@@ -21,6 +21,9 @@ class PersonController(
     private val personService: PersonService
 ) {
 
+    @GetMapping("/hello")
+    fun hello(): Mono<String> = Mono.just("Hello, Spring Webflux!")
+
     @GetMapping
     fun getPersons(): Flux<Person> = personService.getPersons()
 

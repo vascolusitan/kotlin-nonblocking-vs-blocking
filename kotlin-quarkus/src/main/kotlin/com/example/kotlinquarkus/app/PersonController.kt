@@ -5,6 +5,7 @@ import com.example.kotlinquarkus.domain.service.PersonService
 import io.smallrye.mutiny.Uni
 import jakarta.ws.rs.Consumes
 import jakarta.ws.rs.GET
+import jakarta.ws.rs.POST
 import jakarta.ws.rs.PUT
 import jakarta.ws.rs.Path
 import jakarta.ws.rs.PathParam
@@ -21,21 +22,35 @@ class PersonController(
 
     @GET
     @Path("/hello")
-    fun hello(): String {
-        return "Hello, Quarkus!"
-    }
+    fun hello(): Uni<String> = Uni.createFrom().item("Hello, Quarkus!")
 
     @GET
     fun getPersons(): Uni<Response> {
         return personService.getPersons()
-            .map { persons -> Response.ok(persons).build() }
+            .onItem().transform { personList ->
+                Response.ok(personList).build()
+            }
+    }
+
+    @GET
+    @Path("/{id}")
+    fun getPerson(@PathParam("id") id: Long): Uni<Person> = personService.getPerson(id)
+
+    @POST
+    fun createPerson(person: Person): Uni<Response> {
+        return personService.createPerson(person)
+            .onItem().transform { createdPerson ->
+                Response.created(null).entity(createdPerson).build()
+            }
     }
 
     @PUT
     @Path("/{id}")
     fun updatePerson(@PathParam("id") id: Long, person: Person): Uni<Response> {
         return personService.updatePerson(id, person)
-            .map { personRes -> Response.ok(personRes).build() }
+            .onItem().transform { updatedPerson ->
+                Response.ok(updatedPerson).build()
+            }
     }
 
 }

@@ -18,6 +18,9 @@ class PersonController(
     private val personService: PersonService
 ) {
 
+    @GetMapping("/hello")
+    fun hello(): String = "Hello, Spring Boot!"
+
     @GetMapping
     fun getPersons(): List<Person> = personService.getPersons()
 

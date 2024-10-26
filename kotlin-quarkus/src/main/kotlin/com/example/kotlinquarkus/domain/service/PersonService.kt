@@ -15,8 +15,15 @@ class PersonService(
         return personRepository.findAll()
     }
 
+    fun getPerson(id: Long): Uni<Person> {
+        return personRepository.findById(id)
+            .onItem().ifNull().failWith(NotFoundException("Person with id $id not found"))
+    }
+
+    fun createPerson(person: Person): Uni<Person> = personRepository.save(person)
+
     fun updatePerson(id: Long, updatePerson: Person): Uni<Person> {
-        return personRepository.updatePerson(id, updatePerson)
+        return personRepository.save(id, updatePerson)
             .onItem().ifNull().failWith(NotFoundException("Person with id $id not found"))
     }
 }

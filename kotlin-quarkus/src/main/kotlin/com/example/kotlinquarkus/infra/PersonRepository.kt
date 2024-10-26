@@ -20,7 +20,10 @@ class PersonRepository(
     }
 
     @WithTransaction
-    fun updatePerson(id: Long, updatePerson: Person): Uni<Person> {
+    fun save(person: Person): Uni<Person> = panacheRepository.persist(person)
+
+    @WithTransaction
+    fun save(id: Long, updatePerson: Person): Uni<Person> {
         return panacheRepository.findById(id)
             .onItem().ifNotNull().invoke {
                     person ->
